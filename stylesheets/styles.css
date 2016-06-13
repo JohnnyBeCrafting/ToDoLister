@@ -1,0 +1,70 @@
+div.global-container{
+	
+	font-family: 'Raleway';
+	max-width: 500px;
+	margin: 5em auto;
+	padding: 2%;
+}
+
+.header-unit{
+	border-bottom: 1px solid #444;
+	padding-bottom: 15px;
+}
+
+div.add_list input{
+	width: 90%;
+	border: 1px solid rgba(0,0,0,0.2);
+	border-radius: 5px;
+	outline: none;
+	padding: 2% 0 2% 1%;
+	font-size: 16px;
+
+}
+
+
+li>input[type=text]{
+	display: none;
+}
+
+.editmode label {
+	display: none;
+}
+.editmode input[type=text]{
+	display: inline-block;
+}
+
+div.add_list span{
+	display: inline-block;
+	margin-left: 5%;
+	cursor: pointer;
+}
+
+div.incomplete-list-wrapper ul li,
+div.complete-list-wrapper ul li{
+	list-style: none;
+	border-bottom: 1px solid #cfcfcf;
+	padding: 3% 0;
+}
+
+div.incomplete-list-wrapper ul li span,
+div.complete-list-wrapper ul li span {
+	padding-right: 55%;
+}
+
+.incomplete-task{
+	background-color: rgba(140,20,40,0.2);
+}
+
+.complete-task{
+	background-color: rgba(40,200,30,0.2);
+}
+div.incomplete-list-wrapper ul li button,
+div.complete-list-wrapper ul li button {
+	padding: 2%;
+	cursor: pointer;
+	border: none;
+	text-transform: uppercase;
+	background-color: #fff;
+	outline: none;
+	font-size: 15px;
+}
