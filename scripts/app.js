@@ -20,10 +20,12 @@ var headerWrapper = document.getElementById('counter');
 //create new list item
 
 var increaseCounter = function(){
-	console.log('just incremented list counter by one');
+	var counter = 0;
+	counter++;
+	console.log('there are ' + counter +' items to complete');
 }
 
-var decreaseCounter = function(){
+var decreaseCounter = function(position){
 	console.log('just decremented list counter by one');
 }
 
@@ -64,6 +66,7 @@ var addTask = function(){
 	incompleteTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markCompletedTask);
 	taskInput.value = '';
+	increaseCounter();
 }
 
 
@@ -74,6 +77,7 @@ var markCompletedTask = function(){
 	var listItem = this.parentNode;
 	completeTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markIncompleteTask);
+	decreaseCounter();
 }
 
 //Mark existing task as incomplete
@@ -83,6 +87,7 @@ var markIncompleteTask = function(){
 	var listItem = this.parentNode;
 	incompleteTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markCompletedTask);
+	increaseCounter();
 }
 
 //Edit existing task
@@ -111,6 +116,7 @@ var deleteTask = function(){
 	var listItem = this.parentNode;
 	var tasksContainers = listItem.parentNode;
 	tasksContainers.removeChild(listItem);
+	decreaseCounter();
 }
 
 var bindEvents = function(listItem, checkBoxHandler){
