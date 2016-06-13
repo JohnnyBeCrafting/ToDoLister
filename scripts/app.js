@@ -10,7 +10,6 @@ var addTaskInput = document.getElementById('add_task');
 var taskInput = document.getElementById('add_task');
 var completeTasksContainer = document.getElementById('complete-list');
 var incompleteTasksContainer = document.getElementById('incomplete-list'); 
-var headerWrapper = document.getElementById('counter');
 
 //create todo list counter
 //increase counter
@@ -19,10 +18,15 @@ var headerWrapper = document.getElementById('counter');
 	//when user clicks on markTask complete or delete, decrease counter
 //create new list item
 
-var increaseCounter = function(){
-	var counter = 0;
-	counter++;
-	console.log('there are ' + counter +' items to complete');
+var increaseCounter = function(position){
+	var counterContainer = document.getElementById('incomplete-counter'); 
+	var counterUnit = document.createElement('div'); 
+	var counterText = document.createTextNode('incremented task item by one');
+	counterUnit.appendChild(counterText);
+	counterContainer.innerHTML = counterUnit;
+	// var counter = 0;
+	// counter++;
+	// headerWrapper.innerHTML = 'Testing';
 }
 
 var decreaseCounter = function(position){
