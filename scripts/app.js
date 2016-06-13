@@ -20,7 +20,11 @@ var headerWrapper = document.getElementById('counter');
 //create new list item
 
 var increaseCounter = function(){
-	console.log('just added incremented list item by one');
+	console.log('just incremented list counter by one');
+}
+
+var decreaseCounter = function(){
+	console.log('just decremented list counter by one');
 }
 
 var newListElement = function(newTaskText){
