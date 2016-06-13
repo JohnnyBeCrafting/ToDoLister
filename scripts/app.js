@@ -19,6 +19,10 @@ var headerWrapper = document.getElementById('counter');
 	//when user clicks on markTask complete or delete, decrease counter
 //create new list item
 
+var increaseCounter = function(){
+	console.log('just added incremented list item by one');
+}
+
 var newListElement = function(newTaskText){
 	var listItem = document.createElement('li');
 	//input with type checkbox
@@ -56,7 +60,6 @@ var addTask = function(){
 	incompleteTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markCompletedTask);
 	taskInput.value = '';
-	increaseCounter();
 }
 
 
