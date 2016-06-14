@@ -14,7 +14,8 @@ var incompleteCounterContainer = document.getElementById('incomplete-counter');
 var completeCounterContainer = document.getElementById('complete-counter');
 
 var bindCounterEvents = function(taskContainer, counterHandler){
-	
+	//when user clicks on markTaskComplete button
+
 		//counter child element in incomplete-counter decrements by one
 		//counter child element in complete-counter increments by one
 	//else if user clicks on markTaskIncomplete button
@@ -110,7 +111,8 @@ var markIncompleteTask = function(){
 	var listItem = this.parentNode;
 	incompleteTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markCompletedTask);
-	
+	incrementCounter(incompleteTasksContainer, incompleteCounterContainer);
+	decrementCounter(completeTasksContainer, completeCounterContainer)
 }
 
 //Edit existing task
