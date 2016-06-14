@@ -29,7 +29,12 @@ var incrementCounter = function(taskContainer, counterContainer){
 		counter++;
 		console.log(counter);
 	}
-	counterContainer.innerHTML = 'There are ' + counter + ' items left to complete'; 
+	if(counter === 0){
+		counterContainer.innerHTML = 'There is ' + counter + ' item left to complete'; 	
+	}else{
+		counterContainer.innerHTML = 'There are ' + counter + ' items left to complete'; 
+	}
+	
 }
 
 var decrementCounter = function(taskContainer, counterContainer){
@@ -38,7 +43,11 @@ var decrementCounter = function(taskContainer, counterContainer){
 		counter--;
 		console.log(counter);
 	}
-	counterContainer.innerHTML = 'There are ' + counter + ' items left to complete'; 	
+	if(counter === 0){
+		counterContainer.innerHTML = 'There is ' + counter + ' item left to complete'; 	
+	}else{
+		counterContainer.innerHTML = 'There are ' + counter + ' items left to complete'; 
+	}
 }
 
 //when user clicks on addTask
@@ -101,7 +110,8 @@ var markCompletedTask = function(){
 	var listItem = this.parentNode;
 	completeTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markIncompleteTask);
-	
+	incrementCounter(completeTasksContainer, completeCounterContainer);
+	decrementCounter(incompleteTasksContainer, incompleteCounterContainer);
 }
 
 //Mark existing task as incomplete
@@ -112,7 +122,7 @@ var markIncompleteTask = function(){
 	incompleteTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markCompletedTask);
 	incrementCounter(incompleteTasksContainer, incompleteCounterContainer);
-	decrementCounter(completeTasksContainer, completeCounterContainer)
+	decrementCounter(completeTasksContainer, completeCounterContainer);
 }
 
 //Edit existing task
