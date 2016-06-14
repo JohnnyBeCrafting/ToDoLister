@@ -10,28 +10,47 @@ var addTaskInput = document.getElementById('add_task');
 var taskInput = document.getElementById('add_task');
 var completeTasksContainer = document.getElementById('complete-list');
 var incompleteTasksContainer = document.getElementById('incomplete-list'); 
+var incompleteCounterContainer = document.getElementById('incomplete-counter');
+var completeCounterContainer = document.getElementById('complete-counter');
 
-//create todo list counter
-//increase counter
-	//when user clicks add button or markTask incomplete, increase counter
-//decrease counter
-	//when user clicks on markTask complete or delete, decrease counter
-//create new list item
-
-var increaseCounter = function(position){
-	var counterContainer = document.getElementById('incomplete-counter'); 
-	var counterUnit = document.createElement('div'); 
-	var counterText = document.createTextNode('incremented task item by one');
-	counterUnit.appendChild(counterText);
-	counterContainer.innerHTML = counterUnit;
-	// var counter = 0;
-	// counter++;
-	// headerWrapper.innerHTML = 'Testing';
+var bindCounterEvents = function(taskContainer, counterHandler){
+	
+		//counter child element in incomplete-counter decrements by one
+		//counter child element in complete-counter increments by one
+	//else if user clicks on markTaskIncomplete button
+		//counter child element in complete-counter decrements by one
+		//counter child element in incomplete-counter increments by one
 }
 
-var decreaseCounter = function(position){
-	console.log('just decremented list counter by one');
+var incrementCounter = function(taskContainer, counterContainer){
+	var counter = 0;
+	for(var i = 0; i < taskContainer.children.length; i++){
+		counter++;
+		console.log(counter);
+	}
+	counterContainer.innerHTML = 'There are ' + counter + ' items left to complete'; 
 }
+
+var decrementCounter = function(taskContainer, counterContainer){
+	var counter = 0;
+	for(var i = 0; i < taskContainer.children.length; i++){
+		counter--;
+		console.log(counter);
+	}
+	counterContainer.innerHTML = 'There are ' + counter + ' items left to complete'; 	
+}
+
+//when user clicks on addTask
+	//counter child element in incomplete-counter increments by one
+
+//when user clicks on markTaskComplete
+	//bindCounterEvents
+
+//when user clicks on markTaskIncomplete
+	//bindCounterEvents
+
+//when user clicks on delete on incomplete-counter or complete-counter
+	//counter child elements decrements by one
 
 var newListElement = function(newTaskText){
 	var listItem = document.createElement('li');
@@ -70,7 +89,7 @@ var addTask = function(){
 	incompleteTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markCompletedTask);
 	taskInput.value = '';
-	increaseCounter();
+	incrementCounter(incompleteTasksContainer, incompleteCounterContainer);
 }
 
 
@@ -81,7 +100,7 @@ var markCompletedTask = function(){
 	var listItem = this.parentNode;
 	completeTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markIncompleteTask);
-	decreaseCounter();
+	
 }
 
 //Mark existing task as incomplete
@@ -91,7 +110,7 @@ var markIncompleteTask = function(){
 	var listItem = this.parentNode;
 	incompleteTasksContainer.appendChild(listItem);
 	bindEvents(listItem, markCompletedTask);
-	increaseCounter();
+	
 }
 
 //Edit existing task
@@ -120,7 +139,7 @@ var deleteTask = function(){
 	var listItem = this.parentNode;
 	var tasksContainers = listItem.parentNode;
 	tasksContainers.removeChild(listItem);
-	decreaseCounter();
+	decrementCounter(incompleteTasksContainer, incompleteCounterContainer);
 }
 
 var bindEvents = function(listItem, checkBoxHandler){
